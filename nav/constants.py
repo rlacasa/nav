@@ -7,6 +7,7 @@ PAGE = 'Page'
 
 ReadMultiple = 'ReadMultiple'
 CreateMultiple = 'CreateMultiple'
+UpdateMultiple = 'UpdateMultiple'
 
 STRING_VALUE_TO_PYTHON_TYPE_MAPPING = {
     'NotSet': NotSet,
