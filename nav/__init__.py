@@ -29,6 +29,7 @@ from .constants import (
     PAGE,
     ReadMultiple,
     CreateMultiple,
+    UpdateMultiple
 )
 from .plugins import RemoveNamespacePlugin  # noqa
 from .utils import to_builtins
@@ -271,6 +272,19 @@ class NAV:
                 ],
             })
             data = srvc.CreateMultiple(**call_kw)
+        elif function == UpdateMultiple:
+            if not entries:
+                raise ValueError(
+                    "Can't run Page UpdateMultiple without passing in "
+                    "any `entries`"
+                )
+            call_kw.update({
+                '{}_List'.format(service_name): [
+                    {service_name: [entry for entry in entries]}
+                ],
+            })
+            data = srvc.UpdateMultiple(**call_kw)
+
         else:
             raise NotImplementedError
 
@@ -326,6 +340,30 @@ class NAV:
             function=CreateMultiple,
             entries=entries,
             additional_data=additional_data,
+        )
+
+    def update_multiple(
+        self,
+        service_name,
+        entries=None,
+        additional_data=None
+    ):
+        """Update multiple NAV Page entries
+
+                Args:
+                    service_name
+                        The name of the WS Page
+                    entries
+                        Entries to pass to UpdateMultiple
+                    additional_data
+                        Any additional data to pass along to the WS call
+
+                """
+        return self.page(
+            service_name=service_name,
+            function=UpdateMultiple,
+            entries=entries,
+            additional_data=additional_data
         )
 
 
