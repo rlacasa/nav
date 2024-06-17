@@ -1,5 +1,6 @@
 # Changelog
-
+## 5.3.2 (2024-06-17)
+* Add UpdateMultiple Method
 ## 5.3.1 (2019-05-06)
 * Fix `interact` repl not being colorized in newer IPython versions
 
