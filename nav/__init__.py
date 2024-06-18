@@ -268,7 +268,7 @@ class NAV:
                 )
             call_kw.update({
                 '{}_List'.format(service_name): [
-                    {service_name: [entry for entry in entries]}
+                    {service_name: entries['entries']}
                 ],
             })
             data = srvc.CreateMultiple(**call_kw)
