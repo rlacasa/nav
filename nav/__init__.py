@@ -116,7 +116,7 @@ class NAV:
 
     @staticmethod
     def validate_supported_page_function(s):
-        allowed_values = (ReadMultiple, CreateMultiple)
+        allowed_values = (ReadMultiple, CreateMultiple, UpdateMultiple)
         if s not in allowed_values:
             raise exceptions.UnsupportedPageFunction(
                 '`{}` is not a supported service function, must be one of {}'
